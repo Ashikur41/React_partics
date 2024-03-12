@@ -1,14 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import Card from './Card';
+import Card from './components/Card';
+import Data from './data.json';
 
 function App() {
+  // console.log(Data);
+let items=[];
+// for(let x=0; x<Data.length; x++){
+//   items.push(<Card titleText={Data[x].title} descText={Data[x].desc}/>);
+// }
+
+// items= Data.map((item)=><Card titleText={item.title} descText={item.desc}/>); 
+
   return (
     <div>
       <h1 className='heading'>Todo App</h1>
-      <Card titleText="Call Mother" descText="This is Description 1"/>
-      <Card titleText="Call Father" descText="This is Description 2"/>
-      <Card titleText="Call Brother" descText="This is Description 3"/>
+      {Data.map((item,index)=><Card key={index} titleText={item.title} descText={item.desc}/>)};
     </div>
 
   );
