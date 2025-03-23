@@ -7,21 +7,17 @@ import Footer from './component/Footer';
 
 const App = () => {
 
-  let status= false;
+  let status= true;
   
   return (
     <div>
-      {
-        status?
-        <button>Logout Button</button>
-        :
-        <button>Login Button</button>
-      }
+      <h1>Login Status</h1>
+      {status && <button>LogOut</button>}
     </div>
 
   );
 
 
 };
-
+ 
 export default App;
