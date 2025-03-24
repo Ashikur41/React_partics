@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero = (props) => {
     return (
         <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZW5-jogcONl4LPmzdq_vvnNhzw77jvykkbA&s" alt="hero_image"/>
+            <h1>{props.title} </h1>
+            <p>{props.description}</p>
         </div>
     );
 };

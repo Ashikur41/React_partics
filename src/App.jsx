@@ -11,15 +11,7 @@ const App = () => {
   
   return (
     <div>
-      <h1>Login Status</h1>
-      {(()=>{
-
-        if(status==true){
-          return <button>LogOut Button</button>
-        }else{
-          return <button>Login Button</button>
-        }
-      })()}
+      <Hero title="Learn React" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."/>
     </div>
 
   );
