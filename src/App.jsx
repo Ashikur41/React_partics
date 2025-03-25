@@ -8,23 +8,23 @@ import Demo from './Demo';
 
 const App = () => {
 
- 
+ const PostFormData=(event)=>{
+
+  event.preventDefault();
+
+  // TODO
+  alert('Form Submitted');
+
+ }
   
   return (
     <div>
 
-    <button onClick={
-      function Demo(){
-        alert('click');
-      }
-    }>Submit</button>
+      <form action="#" onSubmit={PostFormData}>
+        <input type="text" placeholder='Your Name' />
+        <button>Send</button>
+      </form>
 
-      {/* <button onClick={()=>{
-        alert("Click Button");
-      }}>Submit</button> */}
-
-
-      {/* <button onClick={alert("click button")}>Submit</button> */}
     </div>
 
   );
