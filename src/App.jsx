@@ -25,6 +25,12 @@ const App = () => {
       <p>5. React Hooks have greatly simplifed the development process in React and
         have made it easier to write reusable and composable code.
       </p>
+
+      <h1>React Hook</h1>
+      <h3>useRef() Method</h3>
+      <p>1. The useRef Hook allows you to persist values between renders</p>
+      <p>2. It can be used to store a mutable value that does not cause a re-render when updated.</p>
+      <p>3. It can be used to access a DOM element directly.</p>
     </div>
 
   );
