@@ -7,24 +7,24 @@ import Demo from './Demo';
 
 
 const App = () => {
-
- const PostFormData=(event)=>{
-
-  event.preventDefault();
-
-  // TODO
-  alert('Form Submitted');
-
- }
   
   return (
     <div>
-
-      <form action="#" onSubmit={PostFormData}>
-        <input type="text" placeholder='Your Name' />
-        <button>Send</button>
-      </form>
-
+      <h1>React Hook</h1>
+      <p>1. React Hook is a feature in the React library that allows developers
+        to use state and other React features in functional components,
+        which were previously only available in class components.
+      </p>
+      <p>2. It was introduced in React version 16.8.</p>
+      <p>3. Hooks can be used to manage state,handle side effects,and access
+        lifecycle metthods in functional components.
+      </p>
+      <p>4. There are several built-in Hooks provided by React,such as useState,
+        useEffect,useContext,and useRef.
+      </p>
+      <p>5. React Hooks have greatly simplifed the development process in React and
+        have made it easier to write reusable and composable code.
+      </p>
     </div>
 
   );
