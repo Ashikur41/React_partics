@@ -8,16 +8,19 @@ import Demo from './Demo';
 
 const App = () => {
   
-  let myHeadLine=useRef();
+  let myImage=useRef();
 
   const change=()=>{
-    myHeadLine.current.innerHTML="<ul><li>A</li><li>B</li></ul>";
+    myImage.current.src="https://placehold.co/600x400/orange/white";
+    myImage.current.setAttribute('height','200')
+    myImage.current.setAttribute('width','100')  
+    // myImage.current.innerHTML="<ul><li>A</li><li>B</li></ul>";
     // myHeadLine.current.innerText="Hello Word";
   }
 
   return (
     <div>
-      <h1 ref={myHeadLine}></h1>
+      <img ref={myImage} src="https://placehold.co/600x400" alt="" srcset="" />
 
       <button onClick={change}>Click</button>
     </div>
