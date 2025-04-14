@@ -8,20 +8,25 @@ import Demo from './Demo';
 
 const App = () => {
   
-  let myImage=useRef();
+  
+  // let firstName= useRef()
+  // let lastName= useRef();
+
+  let firstName,lastName = useRef();
 
   const change=()=>{
-    myImage.current.src="https://placehold.co/600x400/orange/white";
-    myImage.current.setAttribute('height','200')
-    myImage.current.setAttribute('width','100')  
-    // myImage.current.innerHTML="<ul><li>A</li><li>B</li></ul>";
-    // myHeadLine.current.innerText="Hello Word";
+
+    let FName= firstName.value;
+    let LName= lastName.value;
+
+    alert(FName+" "+LName);
   }
 
   return (
     <div>
-      <img ref={myImage} src="https://placehold.co/600x400" alt="" srcset="" />
-
+      
+    <input type="text" ref={(f)=>firstName=f}  placeholder='First Name'/>
+    <input type="text" ref={(l)=>lastName=l} placeholder='Last Name'/>
       <button onClick={change}>Click</button>
     </div>
 
