@@ -8,25 +8,21 @@ import Demo from './Demo';
 
 const App = () => {
   
-  
-  // let firstName= useRef()
-  // let lastName= useRef();
+  let myHeadLine= useRef();
 
-  let firstName,lastName = useRef();
 
   const change=()=>{
 
-    let FName= firstName.value;
-    let LName= lastName.value;
+    myHeadLine.current.classList.remove('text-success')
+    myHeadLine.current.classList.add('text-danger')
 
-    alert(FName+" "+LName);
   }
 
   return (
     <div>
       
-    <input type="text" ref={(f)=>firstName=f}  placeholder='First Name'/>
-    <input type="text" ref={(l)=>lastName=l} placeholder='Last Name'/>
+      <h1 className='text-success' ref={myHeadLine}>This is Head Line</h1>
+
       <button onClick={change}>Click</button>
     </div>
 
