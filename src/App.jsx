@@ -8,20 +8,21 @@ import Demo from './Demo';
 
 const App = () => {
   
-  let myHeadLine= useRef();
+  let number= useRef(0);
 
 
   const change=()=>{
 
-    myHeadLine.current.classList.remove('text-success')
-    myHeadLine.current.classList.add('text-danger')
+    number.current++
+    console.log(number.current)
+ 
 
   }
 
   return (
     <div>
       
-      <h1 className='text-success' ref={myHeadLine}>This is Head Line</h1>
+      
 
       <button onClick={change}>Click</button>
     </div>
