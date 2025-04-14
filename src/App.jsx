@@ -8,23 +8,29 @@ import Demo from './Demo';
 
 const App = () => {
   
-  let number= useRef(0);
+  let APIData=useRef(null)
+  let myPTag=useRef()
 
+  const fetchData = async () =>{
 
-  const change=()=>{
-
-    number.current++
-    console.log(number.current)
- 
-
+    const response= await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    APIData.current=await response.json()
   }
+
+  const showData =()=>{
+
+     myPTag.current.innerText=JSON.stringify(APIData.current)
+  }
+
+
 
   return (
     <div>
       
       
-
-      <button onClick={change}>Click</button>
+      <p ref={myPTag}></p>
+      <button onClick={fetchData}>Call API</button>
+      <button onClick={showData}>Show Data</button>
     </div>
 
   );
