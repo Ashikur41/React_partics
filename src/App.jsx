@@ -8,12 +8,29 @@ import Demo from './Demo';
 
 const App = () => {
   
-  const [number,setNumber]=useState(0)
+  const [myObject,setMyObject]=useState({
+    key1: "value1",
+    key2: "value2",
+    key3: "value3"
+
+  });
+
+  const updateObject=()=>{
+    setMyObject(prevObject=>({
+      ...prevObject,
+      key1:'new value for key 1',
+      key2:'new value for key 2'
+    }));
+  };
 
   return (
     <div>
-      <h1>Youu've Clicked The Button: {number} Times.</h1>
-      <button onClick={()=>setNumber(number+1)}>Click me!</button>
+      <h1>{myObject.key1}</h1>
+      <h1>{myObject.key2}</h1>
+      <h1>{myObject.key3}</h1>
+      
+      <button onClick={updateObject}>Change</button>
+
     </div>
 
   );
