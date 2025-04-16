@@ -8,29 +8,40 @@ import Demo from './Demo';
 
 const App = () => {
   
-  const [myObject,setMyObject]=useState({
-    key1: "value1",
-    key2: "value2",
-    key3: "value3"
+  const [list,setList]=useState([])
+  const [item,setItem]=useState("")
 
-  });
+  const AddToList=()=>{
+    list.push(item)
+    setList([...list]);
+  }
 
-  const updateObject=()=>{
-    setMyObject(prevObject=>({
-      ...prevObject,
-      key1:'new value for key 1',
-      key2:'new value for key 2'
-    }));
-  };
+  const RemoveItem=(index)=>{
+    list.splice(index ,1)
+    setList([...list])
+  }
 
   return (
     <div>
-      <h1>{myObject.key1}</h1>
-      <h1>{myObject.key2}</h1>
-      <h1>{myObject.key3}</h1>
-      
-      <button onClick={updateObject}>Change</button>
+      <table>
+        <tbody>
+          {
+            list.length!==0?(
+              list.map((element,index)=>{
+                return(
+                  <tr>
+                    <td>{element}</td>
+                    <td><button onClick={()=>{RemoveItem(index)}}>Remove</button></td>
+                  </tr>
+                )
+              })
+            ): (<tr></tr>)
+          }
+        </tbody>
+      </table>
 
+    <input type="text" onChange={(e)=>setItem(e.target.value)} placeholder='Items'/>
+    <button onClick={AddToList}>add</button>
     </div>
 
   );
