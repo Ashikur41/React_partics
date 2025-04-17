@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './component/Header';
 import Hero from './component/Hero';
 import ContactForm from './component/ContactForm';
@@ -7,15 +7,20 @@ import Demo from './Demo';
 
 
 const App = () => {
+
+  let[data,setData]=useState();
   
   useEffect(()=>{
-    console.log('Hello Word')
-  }),[5,4]
+    fetch('https://dummyjson.com/products/1')
+          .then(res=>res.json())
+          .then(json=>setData(json))
+
+  }),[]
 
 
   return (
-    <div>
-      
+    <div> 
+      {JSON.stringify(data)}
  
     </div>
 
