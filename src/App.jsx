@@ -8,40 +8,48 @@ import Demo from './Demo';
 
 const App = () => {
   
-  const [list,setList]=useState([])
-  const [item,setItem]=useState("")
+  let [FormObj,SetFormObj]=useState({
+    fName:"",
+    lName:"",
+    city:"",
+    gender:""
+  })
 
-  const AddToList=()=>{
-    list.push(item)
-    setList([...list]);
+  const InputOnChange = (property,value)=>{
+    SetFormObj(prevObj=>({
+      ...prevObj,[property]:value
+    }))
   }
 
-  const RemoveItem=(index)=>{
-    list.splice(index ,1)
-    setList([...list])
-  }
+  const FormSubmit=(e)=>{
 
+    e.preventDefault();
+    // console.log(FormObj)
+    alert(JSON.stringify(FormObj))
+  }
   return (
     <div>
-      <table>
-        <tbody>
-          {
-            list.length!==0?(
-              list.map((element,index)=>{
-                return(
-                  <tr>
-                    <td>{element}</td>
-                    <td><button onClick={()=>{RemoveItem(index)}}>Remove</button></td>
-                  </tr>
-                )
-              })
-            ): (<tr></tr>)
-          }
-        </tbody>
-      </table>
+      <div className="container">
+          <form onSubmit={FormSubmit}>
+            <input onChange={(e)=>{InputOnChange("fName",e.target.value)}} value={FormObj.fName} type="text" placeholder='First Name'/><br/>
 
-    <input type="text" onChange={(e)=>setItem(e.target.value)} placeholder='Items'/>
-    <button onClick={AddToList}>add</button>
+            <input onChange={(e)=>{InputOnChange("lName",e.target.value)}} value={FormObj.lName} type="text" placeholder='Last Name'/><br/>
+
+            <select onChange={(e)=>{InputOnChange("city",e.target.value)}} value={FormObj.city}>
+              <option value="">Choose City</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Jessore">Jessore</option>
+            </select>
+            <br/>
+            <input onChange={()=>{InputOnChange("gender","Male")}} checked={FormObj.gender==="Male"} type="radio" name='gender'/>Male
+
+            <input onChange={()=>{InputOnChange("gender","Female")}} checked={FormObj.gender==="Female"} type="radio" name='gender'/>Female
+            <br/>
+            <button type="submit">Submit</button>
+          </form>
+      </div>
+
+ 
     </div>
 
   );
