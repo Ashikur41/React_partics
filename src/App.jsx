@@ -4,30 +4,27 @@ import Hero from './component/Hero';
 import ContactForm from './component/ContactForm';
 import Footer from './component/Footer';
 import Demo from './Demo';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import ProfilePage from './pages/ProfilePage';
+import NotFound from './pages/NotFound';
 
 
 const App = () => {
 
-  let[data,setData]=useState();
-  
-  useEffect(()=>{
-
-    (async()=>{
-
-      let response= await fetch('https://dummyjson.com/products/1')
-      let json= await response.json()
-      setData(json)
-
-    })()
-    
-        
-
-  }),[]
-
-
+ 
   return (
     <div> 
-      {JSON.stringify(data)}
+      
+      <BrowserRouter>
+      <Routes>
+        <Route path='/'element={<HomePage/>}/>
+        <Route path='/product'element={<ProductPage/>}/>
+        <Route path='/profile'element={<ProfilePage/>}/>
+        <Route path='*'element={<NotFound/>}/>
+      </Routes>
+      </BrowserRouter>
  
     </div>
 
