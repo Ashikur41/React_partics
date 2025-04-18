@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from './component/Header';
 import Hero from './component/Hero';
 import ContactForm from './component/ContactForm';
@@ -8,7 +8,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import ProfilePage from './pages/ProfilePage';
-import NotFound from './pages/NotFound';
 
 
 const App = () => {

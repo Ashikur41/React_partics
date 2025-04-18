@@ -6,8 +6,12 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css"
 import "milligram/dist/milligram.css"
 
+
+
 createRoot(document.getElementById('root')).render(
- 
+ <React.StrictMode>
     <App />
+ </React.StrictMode>
+    
  
 )
